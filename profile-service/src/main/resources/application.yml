@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: profile
+  cloud:
+    bootstrap:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+

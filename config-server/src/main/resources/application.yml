@@ -8,5 +8,4 @@ spring:
         git:
           uri: https://github.com/gnanayakkara/spring-cloud-config-store
           search-paths:
-          - '*service'
-          
+          - 'service-config/*service'
