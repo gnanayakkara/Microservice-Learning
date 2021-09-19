@@ -1,9 +1,32 @@
 spring:
-  application:
-    name: profile
-  cloud:
-    bootstrap:
-      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/rentDB?createDatabaseIfNotExist=true
+    username: root
+    password: 1234
+    useSSL: false
+    driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    ddl-auto: none
+  application:
+    name: profile
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:9191/oauth/check_token
+    client:
+      client-id: mobile
+      client-secret: pin
+
+#spring:
+#  application:
+#    name: profile
+#  cloud:
+#    bootstrap:
+#      enabled: true
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
