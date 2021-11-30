@@ -21,13 +21,16 @@ public class AuthUserDetail extends User implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 
-		List<GrantedAuthority> grantedAuthority = new ArrayList<>();
+		List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 
 		getRoles().forEach(role -> {
-			grantedAuthority.add(new SimpleGrantedAuthority(role.getName()));
-		});
+            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
+            role.getPermissions().forEach(permission -> {
+                grantedAuthorities.add(new SimpleGrantedAuthority(permission.getName()));
+            });
 
-		return grantedAuthority;
+        });
+		return grantedAuthorities;
 	}
 
 	@Override
