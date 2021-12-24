@@ -38,7 +38,7 @@ public class ProfileController {
 	}
 	
 	@RequestMapping(value = "/profiles",method = RequestMethod.GET)
-	@PreAuthorize("hasRole('ROLE_operator')")
+	/*@PreAuthorize("hasRole('ROLE_operator')")*/ // Only for particular role
 	public ResponseEntity<List<Customer>> fetchAllCustomers(){
 		List<Customer> customers = customerService.fetchAll();
 		if(customers == null) {
